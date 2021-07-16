@@ -1,0 +1,92 @@
+@import '../../Styles/variables.module.sass';
+
+$rowHeight: 65px;
+.Row {
+  display: grid;
+  grid-template-columns: $firstColumn $secondColumn $thirdColumn $fourthColumn;
+  grid-template-rows: $rowHeight;
+  border: 1px solid $grey;
+  &:not(:first-child) {
+    border-top: none;
+  }
+  &.ExpandedSources {
+    background: #f6f6f6;
+  }
+}
+
+.Cell {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: calc(100% - 20px);
+  padding: 10px 15px;
+  font-size: 14px;
+  &:not(:last-child) {
+    border-right: 1px solid $grey;
+  }
+}
+
+.Cell:nth-child(2) {
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1fr 1fr 1.5fr;
+  text-align: right;
+}
+.Cell:nth-child(3) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: right;
+}
+.Cell:nth-child(4) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: right;
+}
+
+.Source {
+  justify-content: flex-start;
+  align-items: center;
+
+  span[class*='icon'] {
+    color: $darkGrey;
+    font-size: 13px;
+  }
+}
+
+.SourceImage {
+  margin-bottom: 1px;
+  width: 16px;
+  height: 16px;
+}
+
+.SourceName {
+  font-size: 13px;
+  cursor: pointer;
+  color: darken($blue, 10);
+  line-height: 10px;
+}
+
+.SourceUnderName {
+  color: $darkGrey;
+  font-size: 13px;
+}
+
+.Paid {
+  height: 8px;
+  width: 8px;
+  background-color: $green;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  right: 15px;
+}
+
+.DefaultRow {
+  .Cell:first-child {
+    display: grid;
+    grid-template-columns: 10px 16px 1fr;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,125 @@
+@import '../../Styles/variables.module.sass';
+
+$headerRowHeight: 60px;
+$totalRowHeight: 55px;
+$scrollBarWidth: 20px;
+
+.Table {
+  margin: 10px auto;
+  width: $firstColumn + $secondColumn + $thirdColumn + $fourthColumn;
+}
+
+.Rows {
+  max-height: 705px;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+.Rows::-webkit-scrollbar {
+  width: 14px;
+}
+
+.Rows::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.Rows::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+
+  border: 4px solid transparent;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.HeaderRow {
+  border: 1px solid $grey;
+  grid-template-rows: $headerRowHeight - 2px !important;
+  .Cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .Cell:nth-child(2) {
+    padding-left: 15px;
+  }
+  img {
+    width: 16px;
+    margin-right: 5px;
+    align-self: flex-end;
+  }
+}
+
+.HeaderName {
+  display: flex;
+  align-items: center;
+  color: $headerColor;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin-bottom: 3px;
+}
+
+.HeaderUnderName {
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+.Options {
+  position: absolute;
+  top: -3px;
+  right: 6px;
+  div {
+    font-size: 13px;
+    margin: 5px 0;
+    color: $grey;
+  }
+}
+
+.HeaderRow,
+.TitleRow {
+  background: #fafafa;
+}
+
+.Button {
+  cursor: pointer;
+  color: $blue;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.TitleCell {
+  font-size: 13px;
+  text-align: right;
+  font-weight: 700;
+  gap: 5px;
+  & > div {
+    cursor: pointer;
+  }
+  &:nth-child(2) {
+    padding-left: 0;
+  }
+  div.Cost {
+    display: flex;
+    flex-direction: column;
+  }
+  span[class*='icon-question'] {
+    color: #989898;
+    font-size: 11px;
+  }
+  .Button {
+    font-size: 12px;
+    text-decoration: none;
+  }
+}
+
+.TotalRow {
+  background: $totalRowBg;
+  grid-template-rows: $totalRowHeight;
+  .Cell:nth-child(2) {
+    padding-left: 0;
+    text-align: right;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr 1fr 1fr 1.5fr;
+  }
+}
